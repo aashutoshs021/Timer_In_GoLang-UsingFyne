@@ -14,7 +14,7 @@ Getting Started with Fyne https://developer.fyne.io/started/
 
 
 
-### To Run this timer Clone the repo and type the command 
+### To Run this timer, Clone the repo and type the command 
 
 > go run main.go
 
