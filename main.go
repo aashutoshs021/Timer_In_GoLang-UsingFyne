@@ -20,7 +20,7 @@ import (
 var GlobalTimeVar int = 111
 
 func main() {
-	a := app.NewWithID("com.example.app")
+	a := app.NewWithID("com.timer.app")
 	w := a.NewWindow("Timer")
 
 	w.Resize(fyne.NewSize(600, 500))
@@ -97,8 +97,6 @@ func main() {
 	TimeChoserSection := container.New(layout.NewHBoxLayout(), layout.NewSpacer(), button_Decrease, layout.NewSpacer(), ChoseTimeText, text, layout.NewSpacer(), button_Increase, layout.NewSpacer())
 
 	button_Stop := widget.NewButton("Stop", func() {
-		Welcome_text.Text = "Stopped"
-		Welcome_text.Refresh()
 
 	})
 
@@ -112,7 +110,7 @@ func main() {
 		for i := GlobalTimeVar - 1; i >= 0; i-- {
 
 			GlobalTimeVar = i
-			for j := 2; j >= 0; j-- {
+			for j := 59; j >= 0; j-- {
 				hourVariableText := strconv.Itoa(GlobalTimeVar)
 				valueI := j
 				minutetextVariable := strconv.Itoa(valueI)
@@ -128,7 +126,7 @@ func main() {
 
 			TimeChoserSection.Show()
 			TimeRunningSection.Hide()
-
+			button_Stop.Hide()
 			go showNotification(a)
 			f, _ := os.Open("Hen.mp3")
 			// decoding mp3 file
@@ -139,6 +137,7 @@ func main() {
 			speaker.Init(format.SampleRate, format.SampleRate.N(time.Second/10))
 			// play
 			speaker.Play(streamer)
+			GlobalTimeVar = timerInt
 			// looping
 			// select {}
 		}
