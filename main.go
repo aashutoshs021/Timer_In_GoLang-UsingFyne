@@ -75,10 +75,6 @@ func main() {
 	HourText.Text = (hourVariableText)
 	HourText.Refresh()
 
-	// //Image
-	// img := canvas.NewImageFromFile("Image/ClockU.png")
-	// img.FillMode = canvas.ImageFillContain
-
 	timerRunningSeperator := canvas.NewText(":", color.White)
 	timerRunningSeperator.TextStyle = fyne.TextStyle{Bold: true}
 	timerRunningSeperator.TextSize = 50
@@ -139,7 +135,6 @@ func main() {
 			speaker.Play(streamer)
 			GlobalTimeVar = timerInt
 			// looping
-			// select {}
 		}
 	})
 
